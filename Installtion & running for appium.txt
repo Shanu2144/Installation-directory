@@ -1,0 +1,55 @@
+1-download andriod studio & appium & pycharm
+2-open andriod studio and run a emulator
+3-download adb and install it and run it to find the deviceName of the emulator
+4-install pycharm and open it and make a new project and make a directory(Resources) inside the project
+	Settings>project>interpretor>
+							add-appium-python-client
+								pip
+								jsonpath
+								robotframework
+								robotframework-appiumlibrary
+								openpyxl
+								jdcal
+								et-xml
+								et-xml 2021
+								docutils
+								decorator
+								kitchen
+								setuptools
+								six
+								urllib3
+								selenium
+5-open cmd>pip --version
+			pip install robotframework-appiumlibrary
+6-set enviroment varibale
+	USER VARIBALE
+		ANDRIOD_HOME = Location of andriod sdk(LOCAL>ANDRIOD>SDK)
+		ANDRIOD_SWT = Location of andriod sdk tools(\Local\Android\Sdk\tools\lib\x86_64)
+	SYSTEM VARIABLE
+		set path = copy of location of Local\Android\Sdk\platform-tools and platforms
+
+7-open appium-
+	EDIT CONFIGURATION- ANDRIOD_HOME= Location of andriod sdk(LOCAL>ANDRIOD>SDK)
+						JAVA_HOME= Location of java_home or enviroment varibale
+						SAVE AND RESTART
+						AFTER RESTART THEN START SERVER
+		
+8- open pycharm and go to the Libraries  folder & make a file Libraries.robot(Resources)
+							*** Settings ***
+							Library        AppiumLibrary
+							Documentation    Resources file for defining Keywords
+							Library        AppiumLibrary
+
+							*** Variables ***
+
+							${URL}  http://192.168.0.104:4723/wd/hub #ip of our system
+
+							*** Keywords ***
+							User_open_application
+								[Documentation]    This keyword is for opening the application
+								Open application  ${URL}  platformName=Android  platformVersion=11  deviceName=emulator-5554  appPackage=com.clubautomation.club.automation.debug  appActivity=com.clubautomation.mobileapp.ui.activity.StartActivity  automationName=uiautomator2    noReset=true
+								 #Open application  ${URL}  platformName=Android  platformVersion=11   deviceName=RZ8M30MDZEK  appPackage=com.clubautomation.club.au
+
+							User_close_application
+								[Documentation]    This keyword is for closing the application
+								Close Application
